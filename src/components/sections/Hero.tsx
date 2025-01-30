@@ -136,6 +136,7 @@ const Hero = () => {
                 as={motion.div}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.05 }}
               >
                 Baixar Currículo
               </ButtonStyled>
@@ -143,6 +144,7 @@ const Hero = () => {
                 as={motion.div}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.05 }}
               >
                 Entrar em Contato
               </ButtonStyled>
