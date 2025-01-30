@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Header from "@/components/header/Header";
+import Providers from "@/components/layout/Providers";
 import "./globals.css";
-import StyledComponentsRegistry from "@/lib/registry";
 
 export const metadata: Metadata = {
   title: "Luiz Rodrigues",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
