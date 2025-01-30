@@ -40,13 +40,15 @@ const HeaderStyled = styled.header`
   }
 
   li:hover {
-    color: white;
+    color: #ececec;
   }
 
   .select {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-underline-position: above;
+
+    color: #ececec;
   }
 
   @media (min-width: 1440px) {
@@ -65,22 +67,19 @@ const Header = () => {
           <nav>
             <ul>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.05 } }}
-                whileTap={{ scale: 1 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                 className={section === "home" ? "select" : "unselect"}
               >
                 Home
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.05 } }}
-                whileTap={{ scale: 1 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                 className={section === "about" ? "select" : "unselect"}
               >
                 Sobre
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.05 } }}
-                whileTap={{ scale: 1 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                 className={section === "projects" ? "select" : "unselect"}
               >
                 Projetos
