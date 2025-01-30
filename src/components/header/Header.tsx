@@ -7,15 +7,15 @@ import { useSectionContext } from "@/contexts/Section";
 
 const HeaderStyled = styled.header`
   background-color: #161619;
+
   font-size: 16px;
   font-family: "Inter";
-  position: sticky;
-  top: 0;
-
-  height: 100%;
 
   display: flex;
   justify-items: center;
+
+  position: absolute;
+  z-index: 10;
 
   .sub-container {
     width: 100%;
@@ -29,6 +29,13 @@ const HeaderStyled = styled.header`
     font-size: 24px;
   }
 
+  @media (min-width: 1440px) {
+    height: 100px;
+    width: 100%;
+  }
+`;
+
+const NavStyled = styled.nav`
   ul {
     list-style: none;
     display: flex;
@@ -50,10 +57,6 @@ const HeaderStyled = styled.header`
 
     color: #ececec;
   }
-
-  @media (min-width: 1440px) {
-    height: 100px;
-  }
 `;
 
 const Header = () => {
@@ -64,7 +67,7 @@ const Header = () => {
       <Container>
         <div className="sub-container">
           <p>Luiz.</p>
-          <nav>
+          <NavStyled>
             <ul>
               <motion.li
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
@@ -85,7 +88,7 @@ const Header = () => {
                 Projetos
               </motion.li>
             </ul>
-          </nav>
+          </NavStyled>
         </div>
       </Container>
     </HeaderStyled>

@@ -10,6 +10,9 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  --text-color: #dfdfdf;
+  --background-hero: #191920;
 }
 
 a {
