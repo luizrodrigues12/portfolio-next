@@ -9,15 +9,20 @@ import { motion } from "motion/react";
 
 const HeroSectionStyled = styled.section`
   min-height: 100vh;
-  background-color: #101014;
+  background-color: var(--background-hero);
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const BackgroundBox = styled.div`
-  background-color: var(--background-hero);
+  background-color: #191920;
   height: 100%;
   width: 29%;
   position: absolute;
+  bottom: 0;
   right: 0;
   z-index: 1;
 `;
@@ -40,21 +45,22 @@ const ImageBoxStyled = styled.div`
 
   .image {
     display: flex;
-    background-color: #121217;
+    background-color: #161619;
     border: 2px solid var(--text-color);
     position: absolute;
     z-index: 3;
   }
 
   .back-image {
-    border: 2px solid #c7c7c7ed;
+    border: 2px solid #bdbdbd;
     width: 450px;
     height: 450px;
+    background-color: #202030;
 
     position: absolute;
     z-index: 2;
-    top: 20px;
-    left: 20px;
+    top: 16px;
+    left: 16px;
   }
 `;
 
@@ -78,7 +84,7 @@ const InfoBox = styled.div`
   }
 
   span {
-    color: #92a3d2;
+    color: #91a8e7;
   }
 `;
 

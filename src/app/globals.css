@@ -1,7 +1,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   color: #dfdfdf;
   font-family: "Inter";
 }
@@ -11,8 +10,8 @@ body {
   padding: 0;
   margin: 0;
 
-  --text-color: #dfdfdf;
-  --background-hero: #191920;
+  --text-color: #cfcfcf;
+  --background-hero: #101012;
 }
 
 a {

@@ -4,11 +4,13 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyled = styled.footer`
+  width: 100%;
   background-color: #161619;
+  font-size: 14px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
 
   @media (min-width: 1440px) {
     height: 100px;

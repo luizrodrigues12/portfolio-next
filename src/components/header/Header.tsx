@@ -7,18 +7,21 @@ import { useSectionContext } from "@/contexts/Section";
 
 const HeaderStyled = styled.header`
   background-color: #161619;
+  height: 100%;
 
   font-size: 16px;
   font-family: "Inter";
 
   display: flex;
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
 
   position: absolute;
   z-index: 10;
 
   .sub-container {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
