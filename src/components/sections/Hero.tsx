@@ -79,7 +79,6 @@ const InfoBox = styled.div`
     font-size: 20px;
     font-family: "Inter";
     line-height: 28px;
-
     margin-bottom: 4px;
   }
 
@@ -110,8 +109,9 @@ const ButtonStyled = styled.button`
   padding: 10px;
 
   &:hover {
-    background-color: var(--text-color);
-    color: black;
+    border-color: #91a8e7;
+    background-color: #91a8e7;
+    color: #161616;
     cursor: pointer;
   }
 `;
@@ -140,17 +140,15 @@ const Hero = () => {
             <ButtonsBox>
               <ButtonStyled
                 as={motion.div}
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
-                transition={{ duration: 0.05 }}
+                transition={{ duration: 0.01 }}
               >
                 Baixar Currículo
               </ButtonStyled>
               <ButtonStyled
                 as={motion.div}
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
-                transition={{ duration: 0.05 }}
+                transition={{ duration: 0.01 }}
               >
                 Entrar em Contato
               </ButtonStyled>
