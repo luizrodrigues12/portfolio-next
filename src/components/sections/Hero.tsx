@@ -18,7 +18,8 @@ const HeroSectionStyled = styled.section`
 `;
 
 const BackgroundBox = styled.div`
-  background-color: #191920;
+  background-color: var(--principal-color);
+  filter: brightness(80%);
   height: 100%;
   width: 29%;
   position: absolute;
@@ -44,6 +45,9 @@ const ImageBoxStyled = styled.div`
   height: 460px;
 
   .image {
+    width: 450px;
+    height: 450px;
+
     display: flex;
     background-color: #161619;
     border: 2px solid var(--text-color);
@@ -55,7 +59,7 @@ const ImageBoxStyled = styled.div`
     border: 2px solid #bdbdbd;
     width: 450px;
     height: 450px;
-    background-color: #202030;
+    background-color: #191920;
 
     position: absolute;
     z-index: 2;
@@ -83,7 +87,7 @@ const InfoBox = styled.div`
   }
 
   span {
-    color: #91a8e7;
+    color: var(--principal-color);
   }
 `;
 
@@ -120,11 +124,11 @@ const Hero = () => {
   const { setSection } = useSectionContext();
 
   useEffect(() => {
-    setSection("home");
-  });
+    setSection("hero");
+  }, [setSection]);
 
   return (
-    <HeroSectionStyled>
+    <HeroSectionStyled id="hero">
       <Container>
         <PrincipalDiv>
           <InfoBox>
@@ -159,8 +163,8 @@ const Hero = () => {
               className="image"
               src={"/images/foto-luiz.png"}
               alt="Foto de Luiz Rodrigues."
-              width={450}
-              height={450}
+              width={550}
+              height={550}
             />
             <div className="back-image" />
           </ImageBoxStyled>

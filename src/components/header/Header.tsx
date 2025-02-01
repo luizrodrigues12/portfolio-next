@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { useSectionContext } from "@/contexts/Section";
 
 const HeaderStyled = styled.header`
-  background-color: #161619;
+  background-color: #202028;
   height: 100%;
 
   font-size: 16px;
@@ -16,7 +16,7 @@ const HeaderStyled = styled.header`
   justify-content: center;
   align-items: center;
 
-  position: absolute;
+  position: fixed;
   z-index: 10;
 
   .sub-container {
@@ -42,7 +42,7 @@ const NavStyled = styled.nav`
   ul {
     list-style: none;
     display: flex;
-    gap: 60px;
+    gap: 70px;
   }
 
   li {
@@ -50,20 +50,19 @@ const NavStyled = styled.nav`
   }
 
   li:hover {
-    color: #ececec;
+    color: var(--text-color);
+    filter: brightness(120%);
   }
 
   .select {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-underline-position: above;
-
-    color: #ececec;
+    color: var(--text-color);
+    font-family: "InterMedium";
+    filter: brightness(120%);
   }
 `;
 
 const Header = () => {
-  const { section } = useSectionContext();
+  const { section, setSection } = useSectionContext();
 
   return (
     <HeaderStyled>
@@ -73,22 +72,25 @@ const Header = () => {
           <NavStyled>
             <ul>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                className={section === "home" ? "select" : "unselect"}
+                whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                className={section === "hero" ? "select" : "unselect"}
+                onClick={() => setSection("hero")}
               >
-                Home
+                <a href="#hero">Home</a>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                 className={section === "about" ? "select" : "unselect"}
+                onClick={() => setSection("about")}
               >
-                Sobre
+                <a href="#about">Sobre</a>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                 className={section === "projects" ? "select" : "unselect"}
+                onClick={() => setSection("projects")}
               >
-                Projetos
+                <a href="#projects">Projetos</a>
               </motion.li>
             </ul>
           </NavStyled>

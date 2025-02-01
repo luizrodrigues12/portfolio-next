@@ -7,11 +7,17 @@ const AboutSection = styled.section`
   min-height: 100vh;
   width: 100%;
 
-  background-color: #141419;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #171719;
+
+  scroll-margin-top: 40px;
 
   .image {
     filter: brightness(85%) saturate(100%);
-    box-shadow: -8px 8px 0px #91a8eb;
+    box-shadow: -8px 8px 0px var(--principal-color);
   }
 `;
 
@@ -51,7 +57,8 @@ const Paragraphs = styled.div`
     color: #bebebe;
 
     span {
-      color: #bfcef5;
+      color: var(--principal-color);
+      filter: brightness(130%);
       font-family: "Inter";
     }
   }
@@ -73,7 +80,7 @@ const BarsBox = styled.div`
 
 const About = () => {
   return (
-    <AboutSection>
+    <AboutSection id="about">
       <Container>
         <PrincipalDiv>
           <Image

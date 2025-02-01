@@ -38,7 +38,7 @@ const Level = styled.div<{ $level: number }>`
   top: 0;
   left: 0;
 
-  background-color: #798fd2;
+  background-color: var(--principal-color);
 `;
 
 const ProgressBar = ({ text, level, delay }: ProgressBarProps) => {
@@ -50,6 +50,7 @@ const ProgressBar = ({ text, level, delay }: ProgressBarProps) => {
           as={motion.div}
           whileInView={{ width: [0, `${level}%`] }}
           transition={{ duration: 1, delay: delay }}
+          viewport={{ once: true }}
           $level={level}
         />
       </Bar>

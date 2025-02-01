@@ -10,8 +10,11 @@ body {
   padding: 0;
   margin: 0;
 
-  --text-color: #cfcfcf;
-  --background-hero: #101012;
+  scroll-behavior: smooth;
+
+  --principal-color: #91a8e7;
+  --text-color: #d1d1d1;
+  --background-hero: #121213;
 }
 
 a {
