@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ProjectCard from "../utils/ProjectCard";
 import { projects } from "@/data/projects";
+import Container from "../layout/Container";
 
 const ProjectsSectionStyled = styled.section`
   min-height: 100vh;
@@ -20,7 +21,7 @@ const ProjectsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   position: relative;
@@ -32,11 +33,13 @@ const ProjectsContainer = styled.div`
 const Projects = () => {
   return (
     <ProjectsSectionStyled id="projects">
-      <ProjectsContainer>
-        {projects.map((project, i) => (
-          <ProjectCard key={i} project={project} />
-        ))}
-      </ProjectsContainer>
+      <Container>
+        <ProjectsContainer>
+          {projects.map((project, i) => (
+            <ProjectCard key={i} project={project} />
+          ))}
+        </ProjectsContainer>
+      </Container>
     </ProjectsSectionStyled>
   );
 };

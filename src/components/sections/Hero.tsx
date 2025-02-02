@@ -8,13 +8,25 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 const HeroSectionStyled = styled.section`
-  min-height: 100vh;
   background-color: var(--background-hero);
   position: relative;
+
+  margin-top: 60px;
+  padding: 60px 0px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  @media (max-width: 380px) {
+    margin-top: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 0px;
+    min-height: 100vh;
+  }
 `;
 
 const BackgroundBox = styled.div`
@@ -26,6 +38,17 @@ const BackgroundBox = styled.div`
   bottom: 0;
   right: 0;
   z-index: 1;
+
+  display: none;
+
+  @media (min-width: 1024px) {
+    width: 27%;
+    display: block;
+  }
+
+  @media (min-width: 1440px) {
+    width: 28%;
+  }
 `;
 
 const PrincipalDiv = styled.div`
@@ -33,75 +56,154 @@ const PrincipalDiv = styled.div`
   height: 100%;
 
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 30px;
   align-items: center;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const ImageBoxStyled = styled.div`
   position: relative;
   z-index: 2;
-  width: 460px;
-  height: 460px;
+  width: 280px;
+  height: 280px;
 
   .image {
-    width: 450px;
-    height: 450px;
-
+    width: 100%;
+    height: 100%;
     display: flex;
-    background-color: #161619;
+    background-color: #080808;
     border: 2px solid var(--text-color);
     position: absolute;
     z-index: 3;
+
+    border-radius: 10px;
   }
 
   .back-image {
     border: 2px solid #bdbdbd;
+    width: 100%;
+    height: 100%;
+    background-color: #191920;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    width: 360px;
+    height: 360px;
+
+    .image {
+      background-color: #161619;
+      border-radius: 0;
+    }
+
+    .back-image {
+      display: block;
+
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      left: 12px;
+    }
+  }
+
+  @media (min-width: 1440px) {
     width: 450px;
     height: 450px;
-    background-color: #191920;
+    .image {
+    }
 
-    position: absolute;
-    z-index: 2;
-    top: 16px;
-    left: 16px;
+    .back-image {
+      top: 16px;
+      left: 16px;
+    }
   }
 `;
 
 const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  width: auto;
 
   h1 {
-    font-size: 64px;
+    font-size: 36px;
     font-family: "Parkinsans";
-    line-height: 80px;
+    line-height: 44px;
   }
 
   p {
-    font-size: 20px;
-    font-family: "Inter";
-    line-height: 28px;
-    margin-bottom: 4px;
+    display: none;
+    color: var(--text-color);
   }
 
   span {
     color: var(--principal-color);
+  }
+
+  @media (min-width: 1024px) {
+    align-items: start;
+    text-align: left;
+
+    p {
+      display: block;
+
+      font-size: 20px;
+      font-family: "Inter";
+      line-height: 28px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    gap: 28px;
+
+    h1 {
+      font-size: 52px;
+      line-height: 60px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    gap: 28px;
+
+    h1 {
+      font-size: 60px;
+      line-height: 72px;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
   }
 `;
 
 const ButtonsBox = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-content: space-between;
-  gap: 20px;
+  gap: 10px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  @media (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 const ButtonStyled = styled.button`
   background-color: transparent;
   color: var(--text-color);
-  font-size: 16px;
+  font-size: 14px;
   font-family: "InterMedium";
 
   text-align: center;
@@ -117,6 +219,16 @@ const ButtonStyled = styled.button`
     background-color: #91a8e7;
     color: #161616;
     cursor: pointer;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 16px;
+
+    p {
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 4px;
+    }
   }
 `;
 

@@ -76,7 +76,11 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
     <CardContainer
       $development={project.link === "#projects" ? true : false}
       as={motion.div}
-      whileHover={{ scale: 1.03, cursor: "pointer" }}
+      whileHover={{
+        scale: 1.03,
+        cursor: "pointer",
+        filter: "brightness(110%)",
+      }}
       whileTap={{ scale: 1.01 }}
       transition={{ duration: 0.1 }}
       onClick={() =>

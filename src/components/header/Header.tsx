@@ -7,7 +7,8 @@ import { useSectionContext } from "@/contexts/Section";
 
 const HeaderStyled = styled.header`
   background-color: #202028;
-  height: 100%;
+  height: 60px;
+  width: 100%;
 
   font-size: 16px;
   font-family: "Inter";
@@ -29,12 +30,15 @@ const HeaderStyled = styled.header`
 
   p {
     font-family: "ParkinsansMedium";
-    font-size: 24px;
+    font-size: 18px;
   }
 
   @media (min-width: 1440px) {
     height: 100px;
-    width: 100%;
+
+    p {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -42,7 +46,7 @@ const NavStyled = styled.nav`
   ul {
     list-style: none;
     display: flex;
-    gap: 70px;
+    gap: 30px;
   }
 
   li {
@@ -58,6 +62,18 @@ const NavStyled = styled.nav`
     color: var(--text-color);
     font-family: "InterMedium";
     filter: brightness(120%);
+  }
+
+  @media (min-width: 1024px) {
+    ul {
+      gap: 50px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    ul {
+      gap: 60px;
+    }
   }
 `;
 
