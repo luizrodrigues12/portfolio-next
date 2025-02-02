@@ -4,52 +4,119 @@ import Image from "next/image";
 import ProgressBar from "../utils/ProgressBar";
 
 const AboutSection = styled.section`
-  min-height: 100vh;
-  width: 100%;
+  max-width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  padding: 28px 0px;
+
   background-color: #171719;
 
   scroll-margin-top: 40px;
 
-  .image {
-    filter: brightness(85%) saturate(100%);
-    box-shadow: -8px 8px 0px var(--principal-color);
+  @media (min-width: 1024px) {
+    min-height: 100vh;
+    padding: 0px 0px;
   }
 `;
 
 const PrincipalDiv = styled.div`
-  height: 100%;
   width: 100%;
 
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+
+  .image {
+    filter: brightness(85%) saturate(100%);
+    box-shadow: -4px 4px 0px var(--principal-color);
+
+    width: 97%;
+    height: auto;
+  }
 
   h2 {
-    font-size: 64px;
+    font-size: 22px;
   }
 
   p {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    width: 500px;
+
+    h2 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .image {
+      box-shadow: -4px 4px 0px var(--principal-color);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 0px;
+
+    .image {
+      width: 440px;
+      height: auto;
+      box-shadow: -8px 8px 0px var(--principal-color);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .image {
+      width: 550px;
+      height: auto;
+    }
+
+    h2 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 20px;
+    }
   }
 `;
 
-const InfosBox = styled.div`
+const InfoBox = styled.div`
+  width: auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 12px;
+    width: 45%;
+  }
+
+  @media (min-width: 1440px) {
+    gap: 20px;
+  }
 `;
 
 const Paragraphs = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
 
   line-height: 27px;
 
@@ -64,7 +131,13 @@ const Paragraphs = styled.div`
   }
 
   .paragraph-2 {
-    width: 550px;
+    width: 100%;
+  }
+
+  @media (min-width: 1440px) {
+    .paragraph-2 {
+      width: 550px;
+    }
   }
 `;
 
@@ -72,10 +145,16 @@ const BarsBox = styled.div`
   width: 100%;
   height: 100%;
 
+  margin-top: 6px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
+
+  @media (min-width: 768px) {
+    margin-top: 2px;
+  }
 `;
 
 const About = () => {
@@ -90,7 +169,7 @@ const About = () => {
             height={700}
             className="image"
           />
-          <InfosBox>
+          <InfoBox>
             <h2>Sobre.</h2>
             <Paragraphs>
               <p className="paragraph-1">
@@ -104,15 +183,19 @@ const About = () => {
                 diárias com códigos.
               </p>
             </Paragraphs>
-
             <BarsBox>
               <ProgressBar text="UX/UI" level={80} delay={0.1} />
               <ProgressBar text="Next" level={85} delay={0.2} />
               <ProgressBar text="React" level={95} delay={0.3} />
-              <ProgressBar text="JavaScript" level={90} delay={0.4} />
+              <ProgressBar
+                text="JavaScript"
+                level={90}
+                delay={0.4}
+                className="javascript"
+              />
               <ProgressBar text="TypeScript" level={97} delay={0.5} />
             </BarsBox>
-          </InfosBox>
+          </InfoBox>
         </PrincipalDiv>
       </Container>
     </AboutSection>

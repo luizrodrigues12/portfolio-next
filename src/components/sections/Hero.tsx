@@ -12,7 +12,8 @@ const HeroSectionStyled = styled.section`
   position: relative;
 
   margin-top: 60px;
-  padding: 60px 0px;
+  padding: 60px 0px 80px 0px;
+  scroll-margin-top: 60px;
 
   display: flex;
   flex-direction: column;
@@ -20,11 +21,13 @@ const HeroSectionStyled = styled.section`
   align-items: center;
 
   @media (max-width: 380px) {
-    margin-top: 20px;
+    padding: 40px 0px;
   }
 
   @media (min-width: 1024px) {
+    scroll-margin-top: 0px;
     margin-top: 0px;
+    padding: 0px;
     min-height: 100vh;
   }
 `;
@@ -58,8 +61,8 @@ const PrincipalDiv = styled.div`
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
-  gap: 30px;
   align-items: center;
+  gap: 30px;
 
   @media (min-width: 1024px) {
     flex-direction: row;

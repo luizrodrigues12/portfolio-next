@@ -33,6 +33,14 @@ const HeaderStyled = styled.header`
     font-size: 18px;
   }
 
+  @media (min-width: 1024px) {
+    height: 80px;
+
+    p {
+      font-size: 24px;
+    }
+  }
+
   @media (min-width: 1440px) {
     height: 100px;
 

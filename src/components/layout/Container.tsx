@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ContainerStyled = styled.div`
   width: 100%;
-  max-height: 100vh;
+  height: auto;
 
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ const ContainerStyled = styled.div`
   }
 
   @media (min-width: 1800px) {
-    padding: 0px 300px;
+    padding: 0px 320px;
   }
 `;
 

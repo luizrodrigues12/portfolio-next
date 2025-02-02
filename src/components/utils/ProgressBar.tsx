@@ -5,27 +5,55 @@ interface ProgressBarProps {
   text: string;
   level: number;
   delay: number;
+  className?: string;
 }
 
 const ContainerBar = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: start;
   gap: 10px;
 
   .title {
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    .title {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .title {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .title {
+      font-size: 16px;
+    }
   }
 `;
 
 const Bar = styled.div`
-  height: 12px;
+  height: 6px;
   width: 100%;
 
   border-radius: 5px;
 
   position: relative;
-
   background-color: #404060;
+
+  @media (min-width: 768px) {
+    height: 8px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 12px;
+  }
 `;
 
 const Level = styled.div<{ $level: number }>`
@@ -41,9 +69,9 @@ const Level = styled.div<{ $level: number }>`
   background-color: var(--principal-color);
 `;
 
-const ProgressBar = ({ text, level, delay }: ProgressBarProps) => {
+const ProgressBar = ({ text, level, delay, className }: ProgressBarProps) => {
   return (
-    <ContainerBar>
+    <ContainerBar className={className}>
       <div className="title">{text}</div>
       <Bar>
         <Level
