@@ -3,86 +3,133 @@ import Image from "next/image";
 import styled from "styled-components";
 import { motion } from "motion/react";
 
-const CardContainer = styled.div<{ $development: boolean }>`
-  width: 385px;
-  height: 680px;
+interface projectCardProps {
+  project: ProjectType;
+  desktopVersion?: boolean;
+}
 
+const CardContainer = styled.div<{ $development: boolean }>`
+  width: 100%;
+  height: 580px;
   position: relative;
 
   background-color: #202028;
   color: var(--text-color);
-
   border-radius: 10px;
 
   .image {
     object-fit: cover;
     object-position: top center;
-
     width: 100%;
-    height: 70%;
+    height: 74%;
     border-radius: 7px 7px 0px 0px;
-    filter: brightness(${(props) => (props.$development ? "90%" : "100%")});
+    filter: brightness(${(props) => (props.$development ? "75%" : "95%")});
+  }
+
+  @media (min-width: 768px) {
+    height: 650px;
+
+    .image {
+      height: 77%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 420px;
+    height: 715px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 425px;
+    height: 720px;
   }
 `;
 
-const InfoCard = styled.div<{ $development?: boolean }>`
+const InfoCard = styled.div`
   width: 100%;
-  height: 30%;
+  height: 26%;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
 
-  padding: 14px 16px 22px 16px;
+  gap: 12px;
+  padding: 10px 12px 18px 12px;
 
   & h3 {
     font-family: "InterMedium";
-    line-height: 18px;
+    line-height: 14px;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  & p {
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    height: 23%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 14px 16px 22px 16px;
+  }
+
+  @media (min-width: 1440px) {
+    & h3 {
+      line-height: 18px;
+      font-size: 20px;
+    }
   }
 `;
 
 const LibraryContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 10px;
+  gap: 6px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
-const LibraryBox = styled.p`
+const LibraryBox = styled.div<{ $development?: boolean }>`
   width: 100%;
-  padding: 8px 10px;
+  padding: 8px 5px;
   border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
-  font-size: 14px;
+  font-size: 12px;
   font-family: "InterMedium";
-  text-align: center;
 
   background-color: var(--principal-color);
-  filter: brightness(100%);
+  filter: brightness(${(props) => (props.$development ? "75%" : "95%")});
   color: #0f0f0f;
 
   &:hover {
     background-color: var(--text-color);
-    filter: brightness(120%);
+    filter: brightness(90%);
   }
 `;
 
-const ProjectCard = ({ project }: { project: ProjectType }) => {
+const ProjectCard = ({ project, desktopVersion = false }: projectCardProps) => {
   return (
     <CardContainer
       $development={project.link === "#projects" ? true : false}
       as={motion.div}
       whileHover={{
-        scale: 1.03,
+        scale: desktopVersion ? 1.015 : 1,
         cursor: "pointer",
-        filter: "brightness(110%)",
+        filter: "brightness(105%)",
       }}
-      whileTap={{ scale: 1.01 }}
-      transition={{ duration: 0.1 }}
+      whileTap={{ scale: 1 }}
+      transition={{ duration: 0.05 }}
       onClick={() =>
         project.link === "#projects" ? "" : window.open(project.link)
       }
@@ -95,7 +142,7 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
         className="image"
       />
 
-      <InfoCard $development={project.link === "#projects" ? true : false}>
+      <InfoCard>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <LibraryContainer>

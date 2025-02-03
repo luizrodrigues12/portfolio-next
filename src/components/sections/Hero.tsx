@@ -116,8 +116,8 @@ const ImageBoxStyled = styled.div`
   }
 
   @media (min-width: 1440px) {
-    width: 450px;
-    height: 450px;
+    width: 480px;
+    height: 480px;
     .image {
     }
 
@@ -203,7 +203,7 @@ const ButtonsBox = styled.div`
   }
 `;
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled.a`
   background-color: transparent;
   color: var(--text-color);
   font-size: 14px;
@@ -258,14 +258,17 @@ const Hero = () => {
             </p>
             <ButtonsBox>
               <ButtonStyled
-                as={motion.div}
+                href="documents/curriculo-luiz.pdf"
+                download
+                as={motion.a}
                 whileTap={{ scale: 0.99 }}
                 transition={{ duration: 0.01 }}
               >
                 Baixar Currículo
               </ButtonStyled>
               <ButtonStyled
-                as={motion.div}
+                href="mailto:luizrodrigues090705@gmail.com"
+                as={motion.a}
                 whileTap={{ scale: 0.99 }}
                 transition={{ duration: 0.01 }}
               >
