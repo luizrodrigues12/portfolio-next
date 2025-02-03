@@ -68,8 +68,8 @@ const NavStyled = styled.nav`
 
   .select {
     color: var(--text-color);
-    font-family: "InterMedium";
-    filter: brightness(120%);
+    font-family: "Inter";
+    filter: brightness(110%);
   }
 
   @media (min-width: 1024px) {

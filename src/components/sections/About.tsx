@@ -49,6 +49,7 @@ const PrincipalDiv = styled.div`
 
   @media (min-width: 768px) {
     width: 500px;
+    gap: 24px;
 
     h2 {
       font-size: 24px;
@@ -78,7 +79,7 @@ const PrincipalDiv = styled.div`
 
   @media (min-width: 1440px) {
     .image {
-      width: 550px;
+      width: 600px;
       height: auto;
     }
 
@@ -99,7 +100,7 @@ const InfoBox = styled.div`
   gap: 10px;
 
   @media (min-width: 768px) {
-    gap: 16px;
+    gap: 12px;
   }
 
   @media (min-width: 1024px) {
