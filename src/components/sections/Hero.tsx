@@ -267,7 +267,7 @@ const Hero = () => {
                 Baixar Currículo
               </ButtonStyled>
               <ButtonStyled
-                href="mailto:luizrodrigues090705@gmail.com"
+                href={`mailto:luizrodrigues090705@gmail.com`}
                 as={motion.a}
                 whileTap={{ scale: 0.99 }}
                 transition={{ duration: 0.01 }}
