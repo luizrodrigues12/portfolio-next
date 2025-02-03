@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import Container from "../layout/Container";
 import { useSectionContext } from "@/contexts/Section";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -237,16 +237,35 @@ const ButtonStyled = styled.a`
 
 const Hero = () => {
   const { setSection } = useSectionContext();
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     setSection("hero");
   }, [setSection]);
 
+  useEffect(() => {
+    if (innerWidth != undefined && innerWidth >= 1023) {
+      setIsDesktop(true);
+    }
+  }, [isDesktop]);
+
   return (
     <HeroSectionStyled id="hero">
       <Container>
         <PrincipalDiv>
-          <InfoBox>
+          <InfoBox
+            as={motion.div}
+            animate={
+              isDesktop
+                ? { opacity: [0, 1], x: [-20, 0] }
+                : { opacity: [0, 1], y: [30, 0] }
+            }
+            transition={
+              isDesktop
+                ? { duration: 0.3, delay: 0.1 }
+                : { duration: 0.3, delay: 0.1 }
+            }
+          >
             <h1>
               Olá, eu sou
               <br />
@@ -276,7 +295,19 @@ const Hero = () => {
               </ButtonStyled>
             </ButtonsBox>
           </InfoBox>
-          <ImageBoxStyled>
+          <ImageBoxStyled
+            as={motion.div}
+            animate={
+              isDesktop
+                ? { opacity: [0, 1], x: [20, 0] }
+                : { opacity: [0, 1], y: [30, 0] }
+            }
+            transition={
+              isDesktop
+                ? { duration: 0.3, delay: 0.1 }
+                : { duration: 0.3, delay: 0.1 }
+            }
+          >
             <Image
               className="image"
               src={"/images/foto-luiz.png"}

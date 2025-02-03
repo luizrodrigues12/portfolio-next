@@ -89,7 +89,11 @@ const Header = () => {
   const { section, setSection } = useSectionContext();
 
   return (
-    <HeaderStyled>
+    <HeaderStyled
+      as={motion.header}
+      animate={{ opacity: [0, 1], y: [-60, 0] }}
+      transition={{ duration: 0.3 }}
+    >
       <Container>
         <div className="sub-container">
           <p>Luiz.</p>
