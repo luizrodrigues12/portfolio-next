@@ -3,9 +3,10 @@
 import styled from "styled-components";
 import Container from "../layout/Container";
 import { useSectionContext } from "@/contexts/Section";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useDesktopContext } from "@/contexts/Desktop";
 
 const HeroSectionStyled = styled.section`
   background-color: var(--background-hero);
@@ -25,9 +26,14 @@ const HeroSectionStyled = styled.section`
   }
 
   @media (min-width: 1024px) {
+    scroll-margin-top: 80px;
+    margin-top: 80px;
+    padding: 60px 0px;
+  }
+
+  @media (min-width: 1440px) {
     scroll-margin-top: 0px;
     margin-top: 0px;
-    padding: 0px;
     min-height: 100vh;
   }
 `;
@@ -237,17 +243,11 @@ const ButtonStyled = styled.a`
 
 const Hero = () => {
   const { setSection } = useSectionContext();
-  const [isDesktop, setIsDesktop] = useState(false);
+  const { isDesktop } = useDesktopContext();
 
   useEffect(() => {
     setSection("hero");
   }, [setSection]);
-
-  useEffect(() => {
-    if (innerWidth != undefined && innerWidth >= 1023) {
-      setIsDesktop(true);
-    }
-  }, [isDesktop]);
 
   return (
     <HeroSectionStyled id="hero">
@@ -255,14 +255,15 @@ const Hero = () => {
         <PrincipalDiv>
           <InfoBox
             as={motion.div}
+            initial={{ opacity: 0 }}
             animate={
               isDesktop
-                ? { opacity: [0, 1], x: [-20, 0] }
+                ? { opacity: [0, 1], y: [30, 0] }
                 : { opacity: [0, 1], y: [30, 0] }
             }
             transition={
               isDesktop
-                ? { duration: 0.3, delay: 0.1 }
+                ? { duration: 0.4, delay: 0.1 }
                 : { duration: 0.3, delay: 0.1 }
             }
           >
@@ -297,14 +298,15 @@ const Hero = () => {
           </InfoBox>
           <ImageBoxStyled
             as={motion.div}
+            initial={{ opacity: 0 }}
             animate={
               isDesktop
-                ? { opacity: [0, 1], x: [20, 0] }
+                ? { opacity: [0, 1], y: [30, 0] }
                 : { opacity: [0, 1], y: [30, 0] }
             }
             transition={
               isDesktop
-                ? { duration: 0.3, delay: 0.1 }
+                ? { duration: 0.4, delay: 0.1 }
                 : { duration: 0.3, delay: 0.1 }
             }
           >

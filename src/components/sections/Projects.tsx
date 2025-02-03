@@ -25,7 +25,7 @@ const ProjectsSectionStyled = styled.section`
   }
 
   @media (min-width: 1024px) {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 80px;
     padding: 40px 0px;
     min-height: 100vh;
   }

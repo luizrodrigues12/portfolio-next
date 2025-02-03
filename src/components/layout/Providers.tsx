@@ -1,5 +1,6 @@
 "use client";
 
+import { IsDesktopProvider } from "@/contexts/Desktop";
 import { SectionProvider } from "@/contexts/Section";
 import StyledComponentsRegistry from "@/lib/registry";
 import { ReactNode } from "react";
@@ -7,7 +8,9 @@ import { ReactNode } from "react";
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <StyledComponentsRegistry>
-      <SectionProvider>{children}</SectionProvider>
+      <IsDesktopProvider>
+        <SectionProvider>{children}</SectionProvider>
+      </IsDesktopProvider>
     </StyledComponentsRegistry>
   );
 };

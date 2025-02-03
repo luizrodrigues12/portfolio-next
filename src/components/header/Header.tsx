@@ -91,8 +91,9 @@ const Header = () => {
   return (
     <HeaderStyled
       as={motion.header}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: [0, 1], y: [-60, 0] }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.4 }}
     >
       <Container>
         <div className="sub-container">

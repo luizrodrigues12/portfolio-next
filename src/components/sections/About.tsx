@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Container from "../layout/Container";
-import Image from "next/image";
 import ProgressBar from "../utils/ProgressBar";
+import { motion } from "motion/react";
+import { useDesktopContext } from "@/contexts/Desktop";
 
 const AboutSection = styled.section`
   max-width: 100%;
@@ -10,15 +11,18 @@ const AboutSection = styled.section`
   justify-content: center;
   align-items: center;
 
-  padding: 40px 0px;
-
+  padding: 20px 0px;
   background-color: #171719;
-
-  scroll-margin-top: 40px;
+  scroll-margin-top: 60px;
 
   @media (min-width: 1024px) {
+    scroll-margin-top: 80px;
+    padding: 40px 0px;
+  }
+
+  @media (min-width: 1440px) {
+    scroll-margin-top: 40px;
     min-height: 100vh;
-    padding: 0px 0px;
   }
 `;
 
@@ -112,7 +116,11 @@ const InfoBox = styled.div`
   }
 
   @media (min-width: 1440px) {
-    gap: 20px;
+    gap: 18px;
+
+    h2 {
+      line-height: 44px;
+    }
   }
 `;
 
@@ -148,6 +156,8 @@ const Paragraphs = styled.div`
   }
 
   @media (min-width: 1440px) {
+    gap: 16px;
+
     .paragraph-2 {
       width: 550px;
     }
@@ -176,18 +186,38 @@ const BarsBox = styled.div`
 `;
 
 const About = () => {
+  const { isDesktop } = useDesktopContext();
+
   return (
     <AboutSection id="about">
       <Container>
         <PrincipalDiv>
-          <Image
+          <motion.img
             src={"/images/desenho-luiz.jpg"}
             alt="Desenho de Luiz"
             width={608}
             height={700}
             className="image"
+            initial={{ opacity: 0 }}
+            whileInView={
+              isDesktop
+                ? { opacity: [0, 1], x: [-25, 0] }
+                : { opacity: [0, 1], y: [25, 0] }
+            }
+            transition={{ duration: 0.4, delay: 0.3 }}
+            viewport={{ once: true, margin: isDesktop ? "0px" : "-20px" }}
           />
-          <InfoBox>
+          <InfoBox
+            as={motion.div}
+            initial={{ opacity: 0 }}
+            whileInView={
+              isDesktop
+                ? { opacity: [0, 1], x: [30, 0] }
+                : { opacity: [0, 1], y: [25, 0] }
+            }
+            transition={{ duration: 0.4, delay: 0.3 }}
+            viewport={{ once: true, margin: isDesktop ? "0px" : "60px" }}
+          >
             <h2>Sobre.</h2>
             <Paragraphs>
               <p className="paragraph-1">
@@ -201,7 +231,12 @@ const About = () => {
                 diárias com códigos.
               </p>
             </Paragraphs>
-            <BarsBox>
+            <BarsBox
+              as={motion.div}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
               <ProgressBar text="UX/UI" level={80} delay={0.1} />
               <ProgressBar text="Next" level={85} delay={0.2} />
               <ProgressBar text="React" level={95} delay={0.3} />
