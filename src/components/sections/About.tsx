@@ -216,7 +216,7 @@ const About = () => {
                 : { opacity: [0, 1], y: [10, 0] }
             }
             transition={{ duration: 0.4, delay: 0.3 }}
-            viewport={{ once: true, margin: isDesktop ? "0px" : "60px" }}
+            viewport={{ once: true, margin: isDesktop ? "0px" : "30px" }}
           >
             <h2>Sobre.</h2>
             <Paragraphs>

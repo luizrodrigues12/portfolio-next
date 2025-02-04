@@ -142,6 +142,7 @@ const ProjectCard = ({
       }}
       whileTap={{ scale: 1 }}
       transition={{ duration: 0.05 }}
+      viewport={{ once: true }}
       onClick={() =>
         project.link === "#projects" ? "" : window.open(project.link)
       }

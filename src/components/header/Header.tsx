@@ -5,6 +5,7 @@ import Container from "../layout/Container";
 import { motion } from "motion/react";
 import { useSectionContext } from "@/contexts/Section";
 import Link from "next/link";
+import NavMobile from "./NavMobile";
 
 const HeaderStyled = styled.header`
   background-color: #202028;
@@ -51,7 +52,9 @@ const HeaderStyled = styled.header`
   }
 `;
 
-const NavStyled = styled.nav`
+const NavPCStyled = styled.nav`
+  display: none;
+
   ul {
     list-style: none;
     display: flex;
@@ -73,7 +76,13 @@ const NavStyled = styled.nav`
     filter: brightness(110%);
   }
 
+  .no-select {
+    filter: brightness(90%);
+  }
+
   @media (min-width: 1024px) {
+    display: block;
+
     ul {
       gap: 50px;
     }
@@ -98,34 +107,35 @@ const Header = () => {
     >
       <Container>
         <div className="sub-container">
-          <Link href={"#hero"}>
+          <Link href={"#hero"} onClick={() => setSection("hero")}>
             <p>Luiz.</p>
           </Link>
-          <NavStyled>
+          <NavPCStyled>
             <ul>
               <motion.li
                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                className={section === "hero" ? "select" : "unselect"}
+                className={section === "hero" ? "select" : "no-select"}
                 onClick={() => setSection("hero")}
               >
                 <a href="#hero">Home</a>
               </motion.li>
               <motion.li
                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                className={section === "about" ? "select" : "unselect"}
+                className={section === "about" ? "select" : "no-select"}
                 onClick={() => setSection("about")}
               >
                 <a href="#about">Sobre</a>
               </motion.li>
               <motion.li
                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                className={section === "projects" ? "select" : "unselect"}
+                className={section === "projects" ? "select" : "no-select"}
                 onClick={() => setSection("projects")}
               >
                 <a href="#projects">Projetos</a>
               </motion.li>
             </ul>
-          </NavStyled>
+          </NavPCStyled>
+          <NavMobile />
         </div>
       </Container>
     </HeaderStyled>

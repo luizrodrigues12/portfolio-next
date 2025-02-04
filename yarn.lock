@@ -1270,6 +1270,11 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.3.2.tgz#adba1448a9841bec72b42c532ea23dbbedef1a27"
   integrity sha512-AiwGJM8YcNOaobumgtng+6NHuOqC3A7MixFeDafM3X9cIUM+xUXoS5Vfgf+OihAYe20fxqNM9yPBXJzRtZ/4eA==
 
+flowbite-react-icons@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/flowbite-react-icons/-/flowbite-react-icons-1.2.0.tgz#afc0d928032f15f4d2d7c73ff312b28d79780fb0"
+  integrity sha512-SIBpLCzSArO8iD4QQ+CywlwQaFtLYaSh1+5DF9u1UQCgPaoZqgC2naQl6DjjyF/JTjyU/xAELMFBZlMz2zkc4A==
+
 for-each@^0.3.3:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.4.tgz#814517ffc303d1399b2564d8165318e735d0341c"

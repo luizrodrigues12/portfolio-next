@@ -17,6 +17,8 @@ body {
   --principal-color: #91a8e7;
   --text-color: #e6e6e6;
   --background-hero: #121213;
+  --background-header: #202028;
+  --border-color: #3d3d3d;
 }
 
 a {

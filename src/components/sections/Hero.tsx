@@ -2,8 +2,6 @@
 
 import styled from "styled-components";
 import Container from "../layout/Container";
-import { useSectionContext } from "@/contexts/Section";
-import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useDesktopContext } from "@/contexts/Desktop";
@@ -242,12 +240,7 @@ const ButtonStyled = styled.a`
 `;
 
 const Hero = () => {
-  const { setSection } = useSectionContext();
   const { isDesktop } = useDesktopContext();
-
-  useEffect(() => {
-    setSection("hero");
-  }, [setSection]);
 
   return (
     <HeroSectionStyled id="hero">
@@ -311,6 +304,7 @@ const Hero = () => {
             }
           >
             <Image
+              priority
               className="image"
               src={"/images/foto-luiz.png"}
               alt="Foto de Luiz Rodrigues."

@@ -139,7 +139,7 @@ const Projects = () => {
           className="mobile"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ margin: "-0px" }}
+          viewport={{ margin: "-0px", once: true }}
           transition={{ duration: 0.3, delay: 0.3 }}
         >
           <Swiper modules={[Navigation]} spaceBetween={10} navigation>
