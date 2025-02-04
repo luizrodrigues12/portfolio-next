@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import {
   createContext,
   Dispatch,
@@ -19,15 +20,17 @@ const SectionContext = createContext<SectionContextType>(
 
 const SectionProvider = ({ children }: { children: ReactNode }) => {
   const [section, setSection] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const pathName = window.location.href.split("#");
     if (pathName[1]) {
       setSection(pathName[1]);
+      router.push(`#${pathName[1]}`);
       return;
     }
     setSection("hero");
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (window === undefined) return;

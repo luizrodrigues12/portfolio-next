@@ -2,6 +2,7 @@ import { ProjectType } from "@/data/projects";
 import Image from "next/image";
 import styled from "styled-components";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 interface projectCardProps {
   project: ProjectType;
@@ -14,17 +15,21 @@ const CardContainer = styled.div<{ $development: boolean }>`
   height: 580px;
   position: relative;
 
-  background-color: #202028;
+  background-color: #202025;
   color: var(--text-color);
   border-radius: 10px;
+
+  border: 2px solid #323232;
 
   .image {
     object-fit: cover;
     object-position: top center;
     width: 100%;
     height: 74%;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
     filter: brightness(${(props) => (props.$development ? "75%" : "95%")});
+
+    border-bottom: 0;
   }
 
   @media (min-width: 768px) {
@@ -56,17 +61,20 @@ const InfoCard = styled.div`
   align-items: start;
 
   gap: 12px;
-  padding: 10px 12px 18px 12px;
+  padding: 8px 12px 18px 12px;
 
   & h3 {
     font-family: "InterMedium";
     line-height: 14px;
     font-weight: normal;
     font-size: 16px;
+    filter: brightness(98%);
   }
 
   & p {
+    line-height: 19px;
     font-size: 14px;
+    filter: brightness(95%);
   }
 
   @media (min-width: 768px) {
@@ -79,8 +87,8 @@ const InfoCard = styled.div`
 
   @media (min-width: 1440px) {
     & h3 {
-      line-height: 18px;
-      font-size: 20px;
+      line-height: 16px;
+      font-size: 18px;
     }
   }
 `;
@@ -124,6 +132,8 @@ const ProjectCard = ({
   desktopVersion = false,
   delay,
 }: projectCardProps) => {
+  const router = useRouter();
+
   return (
     <CardContainer
       $development={project.link === "#projects" ? true : false}
@@ -144,7 +154,9 @@ const ProjectCard = ({
       transition={{ duration: 0.05 }}
       viewport={{ once: true }}
       onClick={() =>
-        project.link === "#projects" ? "" : window.open(project.link)
+        project.link.startsWith("#")
+          ? router.push(project.link)
+          : window.open(project.link)
       }
     >
       <Image
