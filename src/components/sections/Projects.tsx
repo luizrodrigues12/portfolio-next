@@ -3,6 +3,7 @@ import ProjectCard from "../utils/ProjectCard";
 import { projects } from "@/data/projects";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { motion } from "motion/react";
 import "swiper/css";
 import "swiper/css/bundle";
 
@@ -134,7 +135,13 @@ const Projects = () => {
   return (
     <ProjectsSectionStyled id="projects">
       <ProjectsContainer>
-        <div className="mobile">
+        <motion.div
+          className="mobile"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ margin: "-0px" }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+        >
           <Swiper modules={[Navigation]} spaceBetween={10} navigation>
             {projects.map((project, i) => (
               <SwiperSlide key={i}>
@@ -142,10 +149,15 @@ const Projects = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
         <div className="desktop">
           {projects.map((project, i) => (
-            <ProjectCard desktopVersion={true} key={i} project={project} />
+            <ProjectCard
+              desktopVersion={true}
+              delay={(i + 1) * 0.25}
+              key={i}
+              project={project}
+            />
           ))}
         </div>
       </ProjectsContainer>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Container from "../layout/Container";
 import { motion } from "motion/react";
 import { useSectionContext } from "@/contexts/Section";
+import Link from "next/link";
 
 const HeaderStyled = styled.header`
   background-color: #202028;
@@ -97,7 +98,9 @@ const Header = () => {
     >
       <Container>
         <div className="sub-container">
-          <p>Luiz.</p>
+          <Link href={"#hero"}>
+            <p>Luiz.</p>
+          </Link>
           <NavStyled>
             <ul>
               <motion.li

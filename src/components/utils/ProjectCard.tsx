@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 interface projectCardProps {
   project: ProjectType;
   desktopVersion?: boolean;
+  delay?: number;
 }
 
 const CardContainer = styled.div<{ $development: boolean }>`
@@ -118,11 +119,22 @@ const LibraryBox = styled.div<{ $development?: boolean }>`
   }
 `;
 
-const ProjectCard = ({ project, desktopVersion = false }: projectCardProps) => {
+const ProjectCard = ({
+  project,
+  desktopVersion = false,
+  delay,
+}: projectCardProps) => {
   return (
     <CardContainer
       $development={project.link === "#projects" ? true : false}
       as={motion.div}
+      initial={desktopVersion ? { opacity: 0 } : false}
+      whileInView={{
+        opacity: 1,
+        transition: desktopVersion
+          ? { duration: 0.5, delay: delay }
+          : { duration: 0.1 },
+      }}
       whileHover={{
         scale: desktopVersion ? 1.015 : 1,
         cursor: "pointer",

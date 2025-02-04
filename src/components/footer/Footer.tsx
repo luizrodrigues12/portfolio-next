@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const FooterStyled = styled.footer`
   width: 100%;
-  height: 50px;
+  height: 60px;
   background-color: #202028;
   font-size: 14px;
 

@@ -204,8 +204,8 @@ const About = () => {
                 ? { opacity: [0, 1], x: [-25, 0] }
                 : { opacity: [0, 1], y: [25, 0] }
             }
-            transition={{ duration: 0.4, delay: 0.3 }}
-            viewport={{ once: true, margin: isDesktop ? "0px" : "-20px" }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true, margin: isDesktop ? "0px" : "-14px" }}
           />
           <InfoBox
             as={motion.div}
@@ -213,7 +213,7 @@ const About = () => {
             whileInView={
               isDesktop
                 ? { opacity: [0, 1], x: [30, 0] }
-                : { opacity: [0, 1], y: [25, 0] }
+                : { opacity: [0, 1], y: [10, 0] }
             }
             transition={{ duration: 0.4, delay: 0.3 }}
             viewport={{ once: true, margin: isDesktop ? "0px" : "60px" }}
@@ -236,6 +236,7 @@ const About = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
+              viewport={{ once: true }}
             >
               <ProgressBar text="UX/UI" level={80} delay={0.1} />
               <ProgressBar text="Next" level={85} delay={0.2} />
