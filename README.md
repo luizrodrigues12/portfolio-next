@@ -2,7 +2,7 @@ Esse é um projeto [Next.js](https://nextjs.org), inicializado com [`create-next
 
 ## Começando
 
-Primeiro, rode o código de desenvolvedor:
+Primeiro, rode o código de desenvolvimento:
 
 ```bash
 npm run dev
