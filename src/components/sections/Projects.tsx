@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { motion } from "motion/react";
 import "swiper/css";
-import "swiper/css/bundle";
+import "swiper/css/navigation";
 
 const ProjectsSectionStyled = styled.section`
   width: 100%;
@@ -62,16 +62,18 @@ const ProjectsContainer = styled.div`
     .swiper-button-prev {
       background-color: #00000099;
       color: white;
-      padding: 30px 19px 30px 16px;
       border-radius: 5px;
 
       top: 35%;
     }
 
+    .swiper-navigation-icon {
+      width: 10px !important;
+    }
+
     .swiper-button-next {
       background-color: #00000099;
       color: white;
-      padding: 30px 16px 30px 20px;
       border-radius: 5px;
 
       top: 35%;
