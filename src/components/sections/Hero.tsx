@@ -306,7 +306,7 @@ const Hero = () => {
             <Image
               priority
               className="image"
-              src={"/images/foto-luiz.png"}
+              src={"/images/foto-luiz-otavio.png"}
               alt="Foto de Luiz Rodrigues."
               width={550}
               height={550}
